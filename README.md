@@ -43,7 +43,7 @@ DBOT_TOKEN = "発行したDiscordボットのトークン"
 ```shell
 python3 main.py --setup
 ```
-8. ボットの設定をする。詳細は[setup_mode.md](setup_mode.md)を参照してください。
+8. ボットの設定をする。詳細は[bot_setup.md](bot_setup.md)を参照してください。
 9. ボットをボットモードで起動
 ```shell
 python3 main.py
