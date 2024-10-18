@@ -1,3 +1,4 @@
 *.env
 /venv/
 /bot/*.json
+**/__pycache__/**
