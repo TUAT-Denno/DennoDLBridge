@@ -89,7 +89,8 @@ class Discord2LINECog(commands.Cog):
             return
 
         # テキストチャンネルからのメッセージか
-        if message.channel.type == discord.ChannelType.text:
+        if(message.channel.type == discord.ChannelType.text and
+           message.channel.type == discord.ChannelType.news):
             # 送信元のチャンネルがエロい/グロい
             if message.channel.nsfw is True:
                 return
