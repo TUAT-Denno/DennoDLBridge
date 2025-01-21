@@ -1,8 +1,17 @@
 import sys
 import argparse
 
-import envvar
+import os
+from os.path import join, dirname
+from dotenv import load_dotenv
+
 from dlbridge import DLBridgeBot, DLBridgeMode
+
+# .envファイルに記述されている環境変数を読み込む
+load_dotenv(verbose=True)
+
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
 
 def main() -> int:
     # コマンドラインパーサーの準備
@@ -27,8 +36,7 @@ def main() -> int:
         mode = DLBridgeMode.BOT
     
     # ボット起動
-    discord_bot_token = envvar.DBOT_TOKEN
-    bot = DLBridgeBot(mode = mode, dbot_token = discord_bot_token)
+    bot = DLBridgeBot(mode = mode, dbot_token = os.environ.get("DBOT_TOKEN"))
     bot.run()   # こいつはブロッキングしてくるので必ず最後に呼ぶこと！
 
     return 0
